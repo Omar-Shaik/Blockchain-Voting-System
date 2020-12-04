@@ -1,3 +1,5 @@
+
+
 public class Block{
 	private String data;
 	private String hash;
