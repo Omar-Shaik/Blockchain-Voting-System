@@ -6,13 +6,9 @@ public class Block{
 	private String prevHash;
 	
 	public Block(String data, String prevHash){
-		this.data = d;
+		this.data = data;
 		this.setHash();
 		this.prevHash = prevHash;
-	}
-	
-	public setHash(){
-		//this.hash = hash(this.data)
 	}
 	
 	public String getData(){
@@ -25,5 +21,22 @@ public class Block{
 	
 	public String getPrevHash(){
 		return this.prevHash;
+	}
+	
+	public void setHash(){
+		try{
+			MessageDigest d = MessageDigest.getInstance("SHA-256");
+			d.update(this.data.getBytes());
+			byte[] result = d.digest();
+			StringBuffer s = new StringBuffer();
+			for(byte b:result){
+				s.append(Integer.toHexString(b & 0xff).toString());
+			}
+			this.hash = s.toString();
+		}catch(Exception e){
+			System.out.println("Error Occured");
+			e.printStackTrace();
+		}
+		
 	}
 }
