@@ -23,7 +23,7 @@ public class Block{
 		return this.prevHash;
 	}
 	
-	public String setData(String data){
+	public void setData(String data){
 		this.data = data;
 		setHash();
 	}
