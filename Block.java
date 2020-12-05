@@ -23,6 +23,11 @@ public class Block{
 		return this.prevHash;
 	}
 	
+	public String setData(String data){
+		this.data = data;
+		setHash();
+	}
+	
 	public void setHash(){
 		try{
 			MessageDigest d = MessageDigest.getInstance("SHA-256");
