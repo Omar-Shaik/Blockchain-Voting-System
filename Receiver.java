@@ -36,13 +36,4 @@ public class Receiver implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	
-	/**public static void main(String args[]) throws IOException{
-		Receiver r = new Receiver(5000);
-		r.join("226.4.5.6");
-		String message;
-		while((message = r.receiveMessage()) != null){
-			System.out.println(message);
-		}			
-	}**/
 }
