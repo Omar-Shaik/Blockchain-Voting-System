@@ -1,5 +1,5 @@
 import java.net.MulticastSocket;
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
@@ -9,7 +9,7 @@ public class Sender implements Runnable{
 	private String address;
 	private int port;
 	private MulticastSocket s;
-	private BlockingQueue<String> queue = new ArrayBlockingQueue<>(256);
+	private BlockingQueue<String> queue = new LinkedBlockingQueue<>(256);
 	BufferedReader stdIn;
 	String input;
 	
@@ -31,20 +31,18 @@ public class Sender implements Runnable{
 	@Override
 	public void run(){
 		try {
-			// String msg;
-			// Thread.sleep(3000);
-			// while(!(msg = queue.take()).equals("stop")){
-			// 	sendMessage(msg);
-			// }
-			System.out.println("hey");
+			while(true){
+				while(queue.size() == 0);
+				try{
+					String data = queue.take();
+					sendMessage(data);
+				}
+				catch(IOException e){
+					e.printStackTrace();
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// catch(IOException e){
-		// 	e.printStackTrace();
-		// }
-		// catch (InterruptedException eie) {
-		// 	eie.printStackTrace();
-		// }
 	}
 }

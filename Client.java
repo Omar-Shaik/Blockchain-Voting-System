@@ -11,15 +11,15 @@ public class Client {
         Console console = System.console();
 
         String machine_name = argv[0];
-		if (argv.length != 1) {
+		if (argv.length != 2) {
             System.out.println("Usage: java FileClient <machine_name>");
             System.exit(0);
         }
         
         try {
-            String name = "BlockServer";
+            //String name = "BlockServer";
             Registry registry = LocateRegistry.getRegistry(machine_name);
-            Interface fi = (Interface) registry.lookup(name);
+            Interface fi = (Interface) registry.lookup(argv[1]);
             String driversID;
 
             driversID = console.readLine("Driver's License #: ");
@@ -28,8 +28,8 @@ public class Client {
 
             System.out.println(voted);
         } catch (Exception e) {
-            System.out.println("Client err: " + e.getMessage());
-            // e.printStackTrace();
+            //System.out.println("Client err: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 

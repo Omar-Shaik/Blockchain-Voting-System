@@ -1,6 +1,5 @@
-import java.net.MulticastSocket;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.net.MulticastSocket;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.io.*;
@@ -9,13 +8,12 @@ public class Receiver implements Runnable{
 	private int port;
 	private MulticastSocket s;
 	private String message;
-	// private BlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
+	private BlockingQueue<String> b;
 	
-	public Receiver(int port) throws IOException{
+	public Receiver(int port, BlockingQueue<String> b) throws IOException{
 		this.port = port;
-		// this.queue = queue;
-		
 		this.s = new MulticastSocket(port);
+		this.b = b;
 	}
 	
 	public void join(String address) throws IOException{
@@ -35,19 +33,11 @@ public class Receiver implements Runnable{
 		try{
 			while((message = receiveMessage())!=null){
 				System.out.println(message);
+				//b.put(message);
 			}
 		}
 		catch(IOException e){
 			e.printStackTrace();
 		}
 	}
-	
-	/**public static void main(String args[]) throws IOException{
-		Receiver r = new Receiver(5000);
-		r.join("226.4.5.6");
-		String message;
-		while((message = r.receiveMessage()) != null){
-			System.out.println(message);
-		}			
-	}**/
 }
