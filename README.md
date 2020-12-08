@@ -3,7 +3,9 @@
 ---
 ## Introduction
 The current election process consists of flaws and major risks that will impact the lives and future of a country and its people. Therefore in order to minimize these  risks, we propose a blockchain based voting system that will address the problems that occur in the current election process such as correct voter validation, accurate count of votes and security during this process.
+
 Our project ensures that only an eligible voter with authentic validation will be able to cast a vote. A voter will be only able to vote once during the election process.  Our system also makes sure that all votes are counted accurately and results are not tampered with. This will ensure that the system set in place is a secure platform that voters can trust during the elections. 
+
 The motivation behind the idea of this project is to restore the faith of a country in it’s leaders and to ensure the leader that is being elected represents and speaks for the interests of the majority of the population. The blockchain voting system will be a safe, secure and trustworthy voting platform that will eliminate the major risks that are attached with the traditional election process.
 
 ## How to Run
