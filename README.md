@@ -10,11 +10,12 @@ The motivation behind the idea of this project is to restore the faith of a coun
 
 ## How to Run
 Program Files to run: Client, NodeServer
-1. Compile all files in the *Blockchain-Voting-System/* directory by typing ``` javac *.java```
-2. Open a seperate terminal in *Blockchain-Voting-System/* directory and run ```rmiregistry```
-3. Open 4 terminals in the directory:
+1. Clone this repository: ```git clone https://github.com/Omar-Shaik/Blockchain-Voting-System.git```
+2. Compile all files in the *Blockchain-Voting-System/* directory by typing ``` javac *.java```
+3. Open a seperate terminal in *Blockchain-Voting-System/* directory and run ```rmiregistry```
+4. Open 4 terminals in the directory:
 	1. Terminal 1: Server 1 -> ```java -Djava.security.policy="policy.txt" NodeServer <Casting Address> <Listening Address Server 2> <Listening Address Server 3> <Server Name>```
 	2. Terminal 2: Server 2 -> ``` java -Djava.security.policy="policy.txt" NodeServer <Casting Address> <Listening Address Server 1> <Listening Address Server 3> <Server Name>```
 	3. Terminal 3: Server 3 -> ``` java -Djava.security.policy="policy.txt" NodeServer <Casting Address> <Listening Address Server 1> <Listening Address Server 2> <Server Name>```
 	4. Terminal 4: Client -> ``` java -Djava.security.policy="policy.txt" Client localhost <Server Name>```
-4. Now Clients can connect to the blockchain and cast their unique vote. Their vote is added to the list of votes associated with its respective hash and uniqueness. 
+5. Now Clients can connect to the blockchain and cast their unique vote. Their vote is added to the list of votes associated with its respective hash and uniqueness. 
